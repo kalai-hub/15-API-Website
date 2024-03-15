@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forex</title>
+    {% from 'bootstrap5/form.html' import render_form %}
+    {% block styles %}
+    <!-- Load Bootstrap-Flask CSS here -->
+    {{ bootstrap.load_css() }}
+
+        <!-- Core theme CSS (includes Bootstrap)-->
+    <link
+      href="{{ url_for('static', filename='css/styles.css') }}"
+      rel="stylesheet"
+    />
+    {% endblock %}
+</head>
+<body>
+<header class="masthead" style="background-image: url('https://d10t455z86w23i.cloudfront.net/public/uploads/news/Thumbnail__976082315.jpg')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Forex Rate</h1>
+          <span class="subheading">Welcome to Kalai's Forex exchange</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container px-4 px-lg-5">
+    <h1>Enter source and destination currency to convert</h1>
+    {{ render_form(form) }}
+    {% if post %}
+    <h2>Exchange Price:  {{ curr }}</h2>
+    <h2>Exchange Rate:  {{ rate }}</h2>
+    {% endif %}
+</div>
+</body>
+</html>
